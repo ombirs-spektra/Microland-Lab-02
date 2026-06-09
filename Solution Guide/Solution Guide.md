@@ -30,11 +30,13 @@ REPORT_FILE="$REPORT_DIR/EnvironmentReport.txt"
 
 mkdir -p "$REPORT_DIR"
 
-echo "Username: $USER" > "$REPORT_FILE"
-echo "Hostname: $(hostname)" >> "$REPORT_FILE"
-echo "Home Directory: $HOME" >> "$REPORT_FILE"
-echo "Shell: $SHELL" >> "$REPORT_FILE"
-echo "Current Path: $(pwd)" >> "$REPORT_FILE"
+{
+echo "Username: $(whoami)"
+echo "Hostname: $(hostname)"
+echo "Home Directory: $(getent passwd $(whoami) | cut -d: -f6)"
+echo "Shell: $(getent passwd $(whoami) | cut -d: -f7)"
+echo "Current Path: $(pwd)"
+} > "$REPORT_FILE"
 
 echo "Environment report generated."
 ```
@@ -93,21 +95,26 @@ REPORT="/home/labuser/reports/UserCreationReport.txt"
 
 mkdir -p /home/labuser/reports
 
+echo "Username | Creation Status | Date and Time" > "$REPORT"
+
 for USERNAME in employee1 employee2 employee3
 do
-
     if id "$USERNAME" >/dev/null 2>&1
     then
         STATUS="Already Exists"
     else
-        sudo useradd "$USERNAME"
-        echo "$USERNAME:P@ssw0rd123!" | sudo chpasswd
-        sudo chage -M 99999 "$USERNAME"
-        STATUS="Created"
+        if useradd -m "$USERNAME"
+        then
+            echo "$USERNAME:P@ssw0rd123!" | chpasswd
+            chage -M -1 "$USERNAME"
+            STATUS="Created"
+        else
+            STATUS="Failed"
+        fi
     fi
 
+    echo "User $USERNAME : $STATUS"
     echo "$USERNAME | $STATUS | $(date)" >> "$REPORT"
-
 done
 ```
 
@@ -243,11 +250,16 @@ BACKUP_FILE="$BACKUP_DIR/backup-$TIMESTAMP.tar.gz"
 
 tar -czf "$BACKUP_FILE" "$SOURCE"
 
-echo "Backup Time: $(date)" > "$REPORT"
-echo "Source Path: $SOURCE" >> "$REPORT"
-echo "Backup File: $BACKUP_FILE" >> "$REPORT"
+BACKUP_SIZE=$(du -h "$BACKUP_FILE" | awk '{print $1}')
 
-echo "Backup completed."
+{
+    echo "Backup Time: $(date '+%Y-%m-%d %H:%M:%S')"
+    echo "Source Path: $SOURCE"
+    echo "Backup File Name: $(basename "$BACKUP_FILE")"
+    echo "Backup Size: $BACKUP_SIZE"
+} > "$REPORT"
+
+echo "Backup completed successfully."
 ```
 
 Execute:
