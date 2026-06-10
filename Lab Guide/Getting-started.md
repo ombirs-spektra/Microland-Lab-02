@@ -64,7 +64,7 @@ The commands should display your current username and the hostname of the lab vi
 
 Your virtual machine is your workhorse throughout the workshop. The lab guide is your roadmap to success.
 
-   ![](../images/3.png)
+   ![](/images/3.png)
 
 ## Exploring Your Lab Resources
  
