@@ -64,37 +64,37 @@ The commands should display your current username and the hostname of the lab vi
 
 Your virtual machine is your workhorse throughout the workshop. The lab guide is your roadmap to success.
 
-   ![](/images/3.png)
+   ![](images/3.png)
 
 ## Exploring Your Lab Resources
  
 To get a better understanding of your lab resources and credentials, navigate to the **Environment** tab.
 
-   ![](../images/2.png)
+   ![](images/2.png)
 
 ## Utilizing the Split Window Feature
  
 For convenience, you can open the lab guide in a separate window by selecting the **Split Window** button from the Top right corner.
 
-   ![](../images/4.png)
+   ![](images/4.png)
 
 ## Managing Your Virtual Machine
  
 Feel free to **Start, Restart,** or **Stop** your virtual machine as needed from the **Resources** tab. Your experience is in your hands!
 
-  ![](../images/5.png)
+  ![](images/5.png)
 
 ## Lab Guide Zoom In/Zoom Out
  
 To adjust the zoom level for the environment page, click the **A↕: 100%** icon located next to the timer in the lab environment.
 
-  ![](../images/1.png)
+  ![](images/1.png)
 
 ## Lab Validation
 
 After completing the task, hit the **Validate** button under the Validation tab integrated within your lab guide. If you receive a success message, you can proceed to the next task; if not, carefully read the error message and retry the step, following the instructions in the lab guide.
 
-   ![](../images/6.png)
+   ![](images/6.png)
    
 ## Support Contact
 
@@ -107,4 +107,4 @@ Learner Support Contacts:
 
 Now, click on **Next >>** from the lower right corner to move on to the next page.
 
-![](../Image/next.png)
+![](images/next.png)
