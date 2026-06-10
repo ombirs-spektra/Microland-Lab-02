@@ -38,7 +38,7 @@ For convenience, you can open the lab guide in a separate window by selecting th
  
 Feel free to **Start, Restart,** or **Stop** your virtual machine as needed from the **Resources** tab. Your experience is in your hands!
 
-  ![](images/5.png)
+  ![](images/image.png)
 
 ## Lab Guide Zoom In/Zoom Out
  
